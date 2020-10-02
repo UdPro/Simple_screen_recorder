@@ -17,6 +17,8 @@ import numpy as np
 import pyautogui
 import time
 import threading
+from datetime import datetime
+
 
 status = True
 
@@ -149,7 +151,8 @@ class App(QWidget):
             self.button.setText('Processing')
             self.ru.audio_thread.join()
             self.av.video_thread.join()
-            cmd = "ffmpeg -ac 2 -channel_layout stereo -i temp_audio.wav -i temp_video.avi -pix_fmt yuv420p output.avi"
+
+            cmd = "ffmpeg -ac 2 -channel_layout stereo -i temp_audio.wav -i temp_video.avi -pix_fmt yuv420p " + str(datetime.now().strftime("%Y_%b_%d_%I_%M_%S")) + ".avi"
             subprocess.call(cmd, shell=True)
 
             local_path = os.getcwd()
