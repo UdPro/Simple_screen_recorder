@@ -18,8 +18,13 @@ import pyautogui
 import time
 import threading
 from datetime import datetime
+'''
 
+To do list 
 
+check memory consumtion
+
+'''
 status = True
 
 class videoRecoder():
